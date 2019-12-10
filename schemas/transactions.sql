@@ -1,4 +1,4 @@
-# Basic schema from dbdiagram.io
+-- Basic schema from dbdiagram.io
 
 CREATE TYPE "products_status" AS ENUM (
   'out_of_stock',
@@ -46,7 +46,7 @@ CREATE TABLE "products" (
   "merchant_id" int NOT NULL,
   "price" int,
   "status" products_status,
-  "created_at" datetime DEFAULT (now())
+  "created_at" timestamp DEFAULT (now())
 );
 
 ALTER TABLE "merchants" ADD FOREIGN KEY ("admin_id") REFERENCES "users" ("id");
